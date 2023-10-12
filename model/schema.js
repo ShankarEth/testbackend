@@ -2,9 +2,9 @@
 const mongoose = require("mongoose");
 const Schema = new mongoose.Schema({
     name: {type:String},
-    budget: {type:Number}
+    price: {type:Number}
 },{
-    collection: "movies"
+    collection: "books"
 });
 
 //Schema({key,value},{collection: collectionName})

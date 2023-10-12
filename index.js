@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const schema = require('../model/schema');
 
 mongoose.set("strictQuery",true); //To suppress the  warning
-mongoose.connect("mongodb://127.0.0.1:27017/favorites"); //favorites - Database Name
+mongoose.connect("mongodb+srv://test:12345@cluster0.aifryjm.mongodb.net/favorites"); //favorites - Database Name
 var db = mongoose.connection;
 db.on("open",()=>console.log("Connected to DB"));
 db.on("error",()=>console.log("Error occurred"));
