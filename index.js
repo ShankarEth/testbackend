@@ -1,7 +1,8 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
-const router = require("./controller/router");
+// const router = require("./controller/router");
+const schema = require('../model/schema');
 
 mongoose.set("strictQuery",true); //To suppress the  warning
 mongoose.connect("mongodb://127.0.0.1:27017/favorites"); //favorites - Database Name
@@ -10,14 +11,30 @@ db.on("open",()=>console.log("Connected to DB"));
 db.on("error",()=>console.log("Error occurred"));
 
 const app = express();
-app.set("view engine","ejs");
+// app.set("view engine","ejs");
 
 
 
-app.use("/routes",router);
 
-app.listen(4000,()=>{
-    console.log("Server started at 4000");
+app.get("/",(req,res)=>{
+    schema.find((err,data)=>{
+        if(err)
+        {
+            return err;
+        }
+        else{
+            res.json(data);
+        }
+    })
+})
+
+
+
+// app.use("/routes",router);
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT,()=>{
+    console.log("Server started at "+PORT);
 })
 
 //Go to the browser make a request for http://localhost:4000 -res-> Hello World 
