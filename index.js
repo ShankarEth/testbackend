@@ -32,9 +32,9 @@ app.get("/",(req,res)=>{
 
 // app.use("/routes",router);
 
-const PORT = process.env.PORT || 3001;
+const PORT = 4000;
 app.listen(PORT,()=>{
-    console.log("Server started at "+PORT);
+    console.log("Server started at "+4000);
 })
 
 //Go to the browser make a request for http://localhost:4000 -res-> Hello World 
