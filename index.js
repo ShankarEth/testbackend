@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 // const router = require("./controller/router");
-const schema = require('../model/schema');
+const schema = require('./model/schema');
 
 mongoose.set("strictQuery",true); //To suppress the  warning
 mongoose.connect("mongodb+srv://test:12345@cluster0.aifryjm.mongodb.net/favorites"); //favorites - Database Name
